@@ -17,5 +17,5 @@
   - name: Collect log files
     ansible.builtin.fetch:
       src: /var/log/syslog
-      dest: /home/villena/HOA7.2/server1_logs/
+      dest: /home/villena/HOA_7.2/server1_logs/
       flat: yes
