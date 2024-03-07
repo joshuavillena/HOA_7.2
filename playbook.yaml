@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Update Ubuntu
+    tags: update
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: Ubuntu
+  become: true
+  tasks:
+  - name: Collect log files
+    ansible.builtin.fetch:
+      src: /var/log/syslog
+      dest: /home/villena/HOA7.2/server1_logs/
+      flat: yes
